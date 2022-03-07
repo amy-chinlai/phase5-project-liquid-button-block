@@ -1,0 +1,2 @@
+class IfBlocksController < ApplicationController
+end
