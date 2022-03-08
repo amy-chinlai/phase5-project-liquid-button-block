@@ -1,4 +1,4 @@
-function blockReducer(state = {blocks: []}, action) {
+function blockReducer(state = {all: []}, action) {
     switch(action.type) {
         
         case "FETCH_BLOCKS":
