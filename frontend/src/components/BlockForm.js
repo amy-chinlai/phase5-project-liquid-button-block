@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+// import { useForm, useFieldArray } from "react-hook-form";
 import { Field, FieldArray, reduxForm } from 'redux-form'
 
-const renderField = ({ input, label, type }) => (
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div>
       <label>{label}</label>
       <div>
         <input {...input} type={type} placeholder={label} />
+        {touched && error && <span>{error}</span>}
       </div>
     </div>
   )
@@ -81,12 +82,7 @@ const renderField = ({ input, label, type }) => (
     const { handleSubmit, pristine, reset, submitting } = props
     return (
       <form onSubmit={handleSubmit}>
-        <Field
-          name="name"
-          type="text"
-          component={renderField}
-          label="Name"
-        />
+                Name: <input type="text" name="name"/>
                 Highest Previous Contribution: <input type="radio" id="hpc" name="donation_type" value="HighestPreviousContribution"  />
                 Latest Donation Amount: <input type="radio" id="lda" name="donation_type" value="LatestDonationAmount" />
         <FieldArray name="ifBlocks" component={renderIfBlocks} />
