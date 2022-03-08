@@ -6,10 +6,7 @@ import Block from "./Block"
 class Blocks extends React.Component {
     
     componentDidMount() {
-        console.log("did mount")
         this.props.getBlocks()
-        console.log("after getBlocks()")
-        console.log(this.props.blocks)
     }
     
     render() {
