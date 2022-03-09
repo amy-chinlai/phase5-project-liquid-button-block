@@ -1,31 +1,31 @@
 import React, { Component } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { createBlock } from "../redux/actions/blockActions"
+import {connect} from "react-redux"
+import Block from "./Block"
 
-export default class BlockForm extends Component {
+class BlockForm extends Component {
 
 
     state = {
         name: "",
         donation_type: "",
-        if_blocks: [
-            {
-                minimum: '',
-                maximum: '',
-                buttons: [
-                    {
-                        amount: ''
-                    }
-                ]
-            }
-        ]
+        multiplier: "",
+        default: ""
     }
 
     handleSubmit = event => {
         event.preventDefault()
+        this.props.createBlock(this.state)
         console.log("create block")
+        this.setState({
+            name: "",
+            donation_type: "",
+            multiplier: "",
+            default: ""
+        })
     }
 
-    handleNameChange = event => {
+    handleChange = event => {
         console.log("changed")
         const {value, name} = event.target
         this.setState({
@@ -33,18 +33,6 @@ export default class BlockForm extends Component {
         })
     }
 
-    handleMinimumChange = event => {
-        console.log("changed")
-        this.setState({
-            //  if_blocks: [...this.state.if_blocks, {
-            //      minimum: event.target.value
-            //  }]
-             if_blocks: [...this.state.if_blocks].push({
-                 minimum: event.target.value
-             })
-        })
-    }
-    
 
 
     render() {
@@ -52,24 +40,24 @@ export default class BlockForm extends Component {
         <div>
             <h2>Create a Button Block</h2>
             <form onSubmit={this.handleSubmit}>
-                Name: <input type="text" value={this.state.name} onChange={this.handleNameChange} name="name"/>
+                Name: <input type="text" value={this.state.name} onChange={this.handleChange} name="name"/>
+                <br></br>
                 Select One:
                 Highest Previous Contribution: <input type="radio" id="hpc" name="donation_type" value="HighestPreviousContribution" checked={this.state.donation_type === "HighestPreviousContribution"} onChange={this.handleChange} />
                 Latest Donation Amount: <input type="radio" id="lda" name="donation_type" value="LatestDonationAmount" checked={this.state.donation_type === "LatestDonationAmount"} onChange={this.handleChange} />
-                
+                <br></br>
+                Default: <input type="number" value={this.state.default} onChange={this.handleChange} name="default" />
+                Multiplier: <input type="number" value={this.state.multiplier} onChange={this.handleChange} name="multiplier" />
                 
                 <br>
                 </br>
-                
-                If Block: 
-                Minimum Amount: <input type="number" onChange={this.handleMinimumChange} />
-                
-
-                <br>
-                </br>
-                <input type="submit" value="Create Block" />
+                <input type="submit" value="Create Block & Reset" />
             </form>
+            <h3>Your Block:</h3>
+            <Block block={this.state} />
         </div>
         )
     }
 }
+
+export default connect(null, { createBlock })(BlockForm)
