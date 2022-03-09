@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createBlock } from "../redux/actions/blockActions"
 import {connect} from "react-redux"
+import Block from "./Block"
 
 class BlockForm extends Component {
 
@@ -33,6 +34,7 @@ class BlockForm extends Component {
     }
 
 
+
     render() {
         return(
         <div>
@@ -49,8 +51,10 @@ class BlockForm extends Component {
                 
                 <br>
                 </br>
-                <input type="submit" value="Create Block" />
+                <input type="submit" value="Create Block & Reset" />
             </form>
+            <h3>Your Block:</h3>
+            <Block block={this.state} />
         </div>
         )
     }
