@@ -9,12 +9,17 @@ import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
+      <div className="row main-heading">
+        <h1>Liquid Button Block Builder</h1>
+      </div>
       <Router>
-        <NavBar />
-        <Route path="/" component={Home}/>
-        <Route exact path="/blocks" component={Blocks}/>
-        <Route exact path="/blocks/new" component={BlockForm}/>
+        <div className="row">
+          <NavBar />
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/blocks" component={Blocks}/>
+          <Route exact path="/blocks/new" component={BlockForm}/>
+        </div>
       </Router>
     </div>
   ); 

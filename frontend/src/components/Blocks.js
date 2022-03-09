@@ -11,7 +11,7 @@ class Blocks extends React.Component {
     
     render() {
         return(
-            <div>
+            <div className="col">
                 <h2>All Blocks</h2>
                 {this.props.blocks.map(block => <Block block={block} />)}
             </div>

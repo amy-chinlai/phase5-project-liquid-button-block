@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  text-align: left;
+}
+
+.main-heading {
+  padding: 20px;
+}
+
+* {
+  font-family: 'Comfortaa', cursive;
+}
