@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { createBlock } from "../redux/actions/blockActions"
+import {connect} from "react-redux"
 
-export default class BlockForm extends Component {
+class BlockForm extends Component {
 
 
     state = {
@@ -12,6 +14,7 @@ export default class BlockForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        this.props.createBlock(this.state)
         console.log("create block")
         this.setState({
             name: "",
@@ -52,3 +55,5 @@ export default class BlockForm extends Component {
         )
     }
 }
+
+export default connect(null, { createBlock })(BlockForm)
