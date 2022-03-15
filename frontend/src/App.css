@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  text-align: left;
+}
+
+.main-heading {
+  padding: 20px;
+}
+
+* {
+  font-family: 'Comfortaa', cursive;
+}
+
+input {
+  margin: 100px;
+}
+
+.your-block {
+  padding-top: 20px;
+}
