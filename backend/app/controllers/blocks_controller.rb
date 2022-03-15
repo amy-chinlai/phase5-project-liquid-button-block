@@ -6,7 +6,6 @@ class BlocksController < ApplicationController
     end
 
     def create
-        # binding.pry
         block = Block.new(block_params)
         if block.save 
             render json: block

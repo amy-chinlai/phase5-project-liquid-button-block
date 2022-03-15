@@ -16,7 +16,6 @@ class BlockForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         this.props.createBlock(this.state)
-        console.log("create block")
         this.setState({
             name: "",
             donation_type: "",
@@ -26,7 +25,6 @@ class BlockForm extends Component {
     }
 
     handleChange = event => {
-        console.log("changed")
         const {value, name} = event.target
         this.setState({
             [name]: value
