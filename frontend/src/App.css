@@ -48,3 +48,11 @@
 * {
   font-family: 'Comfortaa', cursive;
 }
+
+input {
+  margin: 100px;
+}
+
+.your-block {
+  padding-top: 20px;
+}

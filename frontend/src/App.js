@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App container">
       <div className="row main-heading">
-        <h1>Liquid Button Block Builder</h1>
+        <h1 className="text-uppercase">Liquid Button Block Builder</h1>
       </div>
       <Router>
         <div className="row">
